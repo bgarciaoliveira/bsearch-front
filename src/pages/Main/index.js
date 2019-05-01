@@ -43,6 +43,19 @@ export default class Main extends Component {
         this.setState({ keyword: e.target.value })
     }
 
+    handleKeyPress = (e) =>  {
+        
+        if(e.key === 'ArrowLeft' && !this.state.search.previousDisabled)
+            return this.previousPage()
+
+        if(e.key === 'ArrowRight' && !this.state.search.nextDisabled)
+            return this.nextPage()
+
+        if(e.key === 'Escape')
+            return this.resetSearch()
+
+    }
+
     resetSearch = () => {
 
         this.setState({
@@ -74,10 +87,11 @@ export default class Main extends Component {
 
     setActionButtonsDisabledStatus = (status) => {
         this.setState({
+            loadingVisible: status === true,
             search: {
                 ...this.state.search,
                 previousDisabled: status,
-                nextDisabled: status
+                nextDisabled: status,                
             }
         })
     }
@@ -132,8 +146,9 @@ export default class Main extends Component {
     previousPage = async () => {
 
         if (this.state.search.page === 1) return
+        if(this.state.search.count === -1 || this.state.search.count === 0) return
 
-        this.setActionButtonsDisabledStatus(true)
+        this.setActionButtonsDisabledStatus(true)        
 
         try {
             const first = this.calculateFirst(this.state.search.page - 1)
@@ -161,6 +176,7 @@ export default class Main extends Component {
 
     nextPage = async () => {
         if (this.state.search.page > this.calculateMaxPage()) return
+        if(this.state.search.count === -1 || this.state.search.count === 0) return
 
         this.setActionButtonsDisabledStatus(true)
 
@@ -188,6 +204,14 @@ export default class Main extends Component {
             this.setActionButtonsDisabledStatus(false)
         }
     }
+
+    componentDidMount(){
+        document.addEventListener("keydown", this.handleKeyPress, false)
+    }
+    
+    componentWillUnmount(){
+        document.removeEventListener("keydown", this.handleKeyPress, false)
+     }
 
     render() {
         return (
