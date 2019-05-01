@@ -1,0 +1,129 @@
+.search-box{
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+}
+
+.search-box .content{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.search-box .content .keyword-input{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    width: 100%;
+    box-sizing : border-box;
+}
+
+.search-box .content .button-box{
+    margin-top: 15px;
+}
+
+.search-box .content .button-box .loading{
+    display: inline-block;
+    float: right;
+}
+
+.search-box .content .button-box input{
+    margin-right: 15px;
+    height: 35px;
+    border-radius: 5px;    
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100px;
+}
+
+.search-box .content .google-button{
+    background: #4285F4;
+}
+
+.search-box .content .bing-button{
+    background: #01A596;
+}
+
+.search-box .content .ask-button{
+    background: #CF0000;
+}
+
+.search-box .content .button-box input:hover{
+    opacity: 0.85;
+}
+
+.result-box{
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+}
+
+.result-box h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.text-orange{
+    color: #da552f;
+}
+
+.result-box h6{
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(143, 136, 136);
+}
+
+.result-box article{
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.result-box strong{
+    font-size: 18px;
+}
+
+.result-box article a{
+    display: block;
+    text-decoration: none;
+    margin-top: 6px;
+}
+
+.result-box article a:hover{
+    text-decoration: underline;
+}
+
+.result-box .actions{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.result-box .actions button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #da552f;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.result-box .actions button:hover{
+    opacity: 0.85;
+}
+
+.result-box .actions span{
+    margin: auto;
+    font-size: 14px;
+    color: rgb(143, 136, 136);
+}
